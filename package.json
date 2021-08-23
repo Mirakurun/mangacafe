@@ -1,8 +1,8 @@
 {
-  "name": "toshokan",
+  "name": "mangacafe",
   "version": "0.0.1",
   "description": "A manga library app",
-  "productName": "Toshokan",
+  "productName": "Mangacafe",
   "author": "Kevin Chhay <25449974+Mirakurun@users.noreply.github.com>",
   "private": true,
   "scripts": {
@@ -11,22 +11,23 @@
     "start": "quasar dev"
   },
   "dependencies": {
-    "@quasar/extras": "^1.0.0",
+    "@quasar/extras": "^1.10.11",
     "axios": "^0.21.1",
-    "core-js": "^3.6.5",
-    "quasar": "^2.0.0-beta.11"
+    "core-js": "^3.16.1",
+    "quasar": "^2.0.4",
+    "vuex": "^4.0.1"
   },
   "devDependencies": {
-    "@quasar/app": "^3.0.0-beta.10",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^7.14.0",
+    "@babel/eslint-parser": "^7.15.0",
+    "@quasar/app": "^3.1.0",
+    "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vue": "^7.0.0",
-    "eslint-webpack-plugin": "^2.4.0",
-    "prettier": "^2.2.1"
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.16.0",
+    "eslint-webpack-plugin": "^2.5.4",
+    "prettier": "^2.3.2"
   },
   "browserslist": [
     "last 10 Chrome versions",
@@ -40,7 +41,7 @@
     "last 5 Opera versions"
   ],
   "engines": {
-    "node": ">= 10.18.1",
+    "node": ">= 12.22.1",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
   },

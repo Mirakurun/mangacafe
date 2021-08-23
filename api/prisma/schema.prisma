@@ -1,0 +1,122 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Artist {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  manga     Manga[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Author {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  manga     Manga[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Chapter {
+  id        Int         @id @default(autoincrement())
+  number    Decimal
+  title     String
+  page      Page[]
+  volume    Volume?     @relation(fields: [volumeId], references: [id])
+  volumeId  Int?
+  manga     Manga       @relation(fields: [mangaId], references: [id])
+  mangaId   Int
+  scanlator Scanlator[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model Genre {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  manga     Manga[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Manga {
+  id              Int            @id @default(autoincrement())
+  title           String         @unique
+  publish         DateTime
+  cover           String
+  artist          Artist[]
+  author          Author[]
+  volume          Volume[]
+  chapter         Chapter[]
+  genre           Genre[]
+  publisher       Publisher?     @relation(fields: [publisherId], references: [id])
+  publisherId     Int?
+  serialization   Serialization? @relation(fields: [serializationId], references: [id])
+  serializationId Int?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}
+
+model Page {
+  id        Int      @id @default(autoincrement())
+  number    Int
+  uri       String
+  chapter   Chapter  @relation(fields: [chapterId], references: [id])
+  chapterId Int
+  source    Source[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Publisher {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  manga     Manga[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Scanlator {
+  id        Int       @id @default(autoincrement())
+  name      String    @unique
+  chapter   Chapter[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Serialization {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  manga     Manga[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Source {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  fqdn      String   @unique
+  page      Page[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Volume {
+  id        Int       @id @default(autoincrement())
+  number    Int
+  cover     String
+  chapter   Chapter[]
+  manga     Manga     @relation(fields: [mangaId], references: [id])
+  mangaId   Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}

@@ -2,7 +2,20 @@ const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/Index.vue') }],
+    children: [
+      { name: 'home', path: '', component: () => import('pages/Index.vue') },
+      {
+        path: '/manga/:id',
+        component: () => import('pages/Manga.vue'),
+        children: [
+          {
+            name: 'manga-home',
+            path: '',
+            component: () => import('pages/MangaIndex.vue'),
+          },
+        ],
+      },
+    ],
   },
 
   // Always leave this as last one,

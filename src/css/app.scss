@@ -1,1 +1,46 @@
 // app global css in SCSS form
+
+@font-face {
+  font-family: WildWords-Regular;
+  src: url(./fonts/WildWords-Regular.woff);
+}
+
+@font-face {
+  font-family: WildWords-Bold;
+  src: url(./fonts/WildWords-Bold.woff);
+}
+
+@font-face {
+  font-family: WildWords-Italic;
+  src: url(./fonts/WildWords-Italic.woff);
+}
+
+@font-face {
+  font-family: WildWords-BoldItalic;
+  src: url(./fonts/WildWords-BoldItalic.woff);
+}
+
+@font-face {
+  font-family: GraveyardSmash-Italic;
+  src: url(./fonts/GraveyardSmash-Italic.woff);
+}
+
+.gs-italic {
+  font-family: 'GraveyardSmash-Italic';
+}
+
+.ww {
+  font-family: 'WildWords-Regular';
+}
+
+.ww-bold {
+  font-family: 'WildWords-Bold';
+}
+
+.ww-italic {
+  font-family: 'WildWords-Italic';
+}
+
+.ww-bold-italic {
+  font-family: 'WildWords-BoldItalic';
+}

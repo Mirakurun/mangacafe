@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header bordered class="bg-white text-dark">
       <q-toolbar>
         <q-btn
           flat
@@ -11,7 +11,14 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <q-toolbar-title>Mangacafe</q-toolbar-title>
+
+        <q-tabs v-model="tab" shrink inline-label content-class="gs-italic">
+          <q-tab name="library" label="Library" icon="fas fa-book" />
+          <q-tab name="history" label="History" icon="fas fa-history" />
+          <q-tab name="tags" label="Tags" icon="fas fa-tags" />
+          <q-tab name="settings" label="Settings" icon="fas fa-cog" />
+        </q-tabs>
 
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
@@ -96,6 +103,7 @@ export default defineComponent({
 
   setup() {
     const leftDrawerOpen = ref(false);
+    const tab = ref('library');
 
     return {
       essentialLinks: linksList,
@@ -103,6 +111,7 @@ export default defineComponent({
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
       },
+      tab,
     };
   },
 });

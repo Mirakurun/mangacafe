@@ -1,4 +1,4 @@
-# Toshokan (toshokan)
+# Mangacafe
 
 A manga library app
 
